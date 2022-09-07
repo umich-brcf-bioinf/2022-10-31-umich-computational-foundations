@@ -1,5 +1,5 @@
 ---
-title: "UM Bioinformatics Core Summer 2022 Workshop Series"
+title: "UM Bioinformatics Core Fall 2022 Workshop Series"
 author: ""
 output:
         html_document:
@@ -21,8 +21,8 @@ body{ /* Normal  */
 
 The Bioinf Core Workshop Team is pleased to host two workshops this summer:
 
-### **<a href="https://www.eventbrite.com/e/computational-foundations-a-virtual-3-day-workshop-from-um-bioinfcore-tickets-344296729787" target="_blank">7/25-7/27, 9am-1pm ET: Computational Foundations</a>**  
-### **<a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-355465154847" target="_blank">8/8-8/10, 9am-1pm ET: RNA-Seq Demystified</a>**
+### **<a href="https://www.eventbrite.com/e/computational-foundations-a-virtual-3-day-workshop-from-um-bioinfcore-tickets-344296729787" target="_blank">10/31-11/2, 9am-1pm ET: Computational Foundations</a>**  
+### **<a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-415620210237" target="_blank">11/14-11/16, 9am-1pm ET: RNA-Seq Demystified</a>**
 
 <br/> 
 
@@ -31,8 +31,8 @@ The Bioinf Core Workshop Team is pleased to host two workshops this summer:
 * Computational Foundations workshop assumes no previous coding/programming experience. 
 RNA-Seq Demystified assumes a basic knowledge of genetics and prior enrollment 
 in a Computational Foundations workshop, Software Carpentry workshop, or equivalent experience.
-* The cost is $300/seat for the entire two-workshop series. While it is possible to register for a single workshop, we recommend that you attend both. When you enroll in the RNA-Seq Demystified workshop, you can request to be automatically registered for Computational Foundations. Register at <a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-355465154847" target="_blank">EventBrite</a>. *(The Computational Foundations is free of charge; however please note that: 1) registration precedence is given to RNA-Seq Demystified attendees and 2) general admission registration for Computational Foundations opens later in July.)*
-* Registration closes 7/18/2022.
+* The cost is $300/seat for the entire two-workshop series. While it is possible to register for a single workshop, we recommend that you attend both. When you enroll in the RNA-Seq Demystified workshop, you can request to be automatically registered for Computational Foundations. Register at <a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-415620210237" target="_blank">EventBrite</a>. *(The Computational Foundations is free of charge; however please note that: 1) registration precedence is given to RNA-Seq Demystified attendees and 2) general admission registration for Computational Foundations opens later in October.)*
+* Registration closes 10/24/2022.
 
 
 ### More details:
@@ -45,7 +45,7 @@ in a Computational Foundations workshop, Software Carpentry workshop, or equival
 * We will provide a server environment and a login, sample data, and required software.  
 * The workshop experience is designed to be interactive and includes live-coding and opportunities for questions throughout. The workshop will be recorded and the recordings will be made available to those who attend the workshop.
 
-<table style="margin-left:auto; margin-right:auto;"><tr><td><a title="Learn More and Register" href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-355465154847" style="padding:18px; background-color:#00B2A9; font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;display:block" target="_blank">Learn More and Register</a></td></tr></table>
+<table style="margin-left:auto; margin-right:auto;"><tr><td><a title="Learn More and Register" href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-415620210237" style="padding:18px; background-color:#00B2A9; font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;display:block" target="_blank">Learn More and Register</a></td></tr></table>
 
 <br/>
 
