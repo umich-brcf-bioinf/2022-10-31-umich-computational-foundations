@@ -19,9 +19,9 @@ body{ /* Normal  */
   }
 </style>
 
-The Bioinf Core Workshop Team is pleased to host two workshops this summer:
+The Bioinf Core Workshop Team is pleased to host two workshops this fall:
 
-### **<a href="https://www.eventbrite.com/e/computational-foundations-a-virtual-3-day-workshop-from-um-bioinfcore-tickets-344296729787" target="_blank">10/31-11/2, 9am-1pm ET: Computational Foundations</a>**  
+### **<a href="https://www.eventbrite.com/e/computational-foundations-a-virtual-3-day-workshop-from-um-bioinfcore-tickets-415616158117" target="_blank">10/31-11/2, 9am-1pm ET: Computational Foundations</a>**  
 ### **<a href="https://www.eventbrite.com/e/rna-seq-demystified-a-virtual-3-day-workshop-from-um-bionfcore-tickets-415620210237" target="_blank">11/14-11/16, 9am-1pm ET: RNA-Seq Demystified</a>**
 
 <br/> 
