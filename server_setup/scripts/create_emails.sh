@@ -15,8 +15,8 @@ set -ue
 date
 export USER_PASSWD_FILE=$1
 export OUTPUT_DIR=$2
-export CHECKLIST_LINK=$3 # 'https://umich-brcf-bioinf.github.io/2022-02-28-umich-computational-foundations/html/workshop_setup/preworkshop_checklist.html'
-export INTRO_TEXT=$4 # 'The workshop will begin 2/28 at 8:55am ET. The Zoom link will be emailed to you.' 
+export CHECKLIST_LINK=$3 # 'https://umich-brcf-bioinf.github.io/2022-10-31-umich-computational-foundations/html/workshop_setup/preworkshop_checklist.html'
+export INTRO_TEXT=$4 # 'The workshop will begin 10/31 at 8:55am ET. The Zoom link will be emailed to you.' 
 
 users=()
 missing_users=()
@@ -94,7 +94,7 @@ if (( ${#added_users[@]} )); then
     cat << EOF
 You can send these emails from AWS by executing these commands:
 cd $(readlink -e $OUTPUT_DIR)
-ls | xargs -t -I {} sh -c "mutt -s 'UM BioinfCore Workshop Login' {} < {}
+ls | xargs -t -I {} sh -c "mutt -s 'UM BioinfCore Workshop Login' {} < {}"
 EOF
 else
     echo WARNING: no emails were created.
