@@ -360,16 +360,14 @@ Notice in the operation above that R inserts an `NA` value to extend our vector 
 
 ## Logical Subsetting
 
-We saw above that we could use a logical vector in the bracket notation to extract the `TRUE` indices of a vector. In the case above we had a literal logical vector (i.e. `c(TRUE, FALSE, FALSE, FALSE)`). But we can also use a logical expression. Let's say we wanted get all of the countries in our vector of country populations that were less than 10,000,000. We could index using the '<' (less than) logical operator:
+We saw with `countries[on_asia]` that we could use a literal logical vector in the bracket notation to extract the `TRUE` indices of a vector. But we can also use a logical expression. Let's say we wanted get all of the countries in our vector of country populations that were less than 10,000,000. We could index using the '<' (less than) logical operator:
 
 ```{r, purl = FALSE}
 # Subset populations to those less than 10 million
 populations[populations < 10000000]
 ```
 
-In the square brackets you place the name of the vector followed by the comparison operator and (in this case) a numeric value.
-
-Some of the most common logical operators you will use in R are:
+In the square brackets we essentially write an expression for a logical test of the vector. In this case `populations < 10000000`, which R will then evaluate into a logical vector. Some of the most common logical operators you will use in R are:
 
   | Operator | Description              |
   |----------|--------------------------|
@@ -383,44 +381,31 @@ Some of the most common logical operators you will use in R are:
   | a \| b   | a or b                   |
   | a & b    | a and b                  |
 
+There is a related way of doing this which returns the indices which are `TRUE`, using the `which()` function.
 
-> ## The power of programming
->
-> The reason why the expression `populations[populations < 10000000]` works can be better understood if you examine what the expression `populations < 10000000` evaluates to:
->
-> ```{r, purl = FALSE}
-> populations < 10000000
-> ```
->
-> The output above is a logical vector, the 2nd and 3rd elements of which are TRUE. When you pass a logical vector as an index, R will return the TRUE values:
->
-> ```{r, purl = FALSE}
-> populations[c(FALSE, TRUE, TRUE, FALSE)]
-> ```
->
-> If you have never coded before, this type of situation starts to expose the power of programming. We mentioned before that in the bracket notation you take your named vector followed by brackets which contain an index: **vector[index]**. The index needs to *evaluate to* a number. So, even if it does not appear to be an integer (e.g. 1, 2, 3), as long as R can evaluate it, we will get a result. That our expression `populations < 10000000` evaluates to a number can be seen in the following situation. If you wanted to know which **indices** (1, 2, 3, or 4) in our vector of country populations was less than 10,000,000, you could use the `which()` function.
->
-> The `which()` function to returns the indices of any item that evaluates as TRUE in our comparison:
->
-> ```{r, purl = FALSE}
-> which(populations < 10000000)
-> ```
->
-> **Why this is important**
->
-> Often in programming we will not know what inputs and values will be used when our code is executed. Rather than put in a pre-determined value (e.g 10000000) we can use an object that can take on whatever value we need. So for example:
->
-> ```{r, purl = FALSE}
-> population_cutoff <- 10000000
-> populations[populations < population_cutoff]
-> ```
->
-> Ultimately, it's putting together flexible, reusable code like this that gets at the power of programming.
+```{r, purl = FALSE}
+which(populations < 10000000)
+```
 
+And then subsetting populations with the above expression in the square brackets gives the same result:
+
+```{r, purl = FALSE}
+# Subset populations to those less than 10 million
+populations[which(populations < 10000000)]
+```
+
+Finally, a useful idea is to replace the hard-coded 10,000,000 with a variable. Often we won't know what inputs and values will be used when our code is executed, so we could also do something like:
+
+```{r, purl = FALSE}
+pop_thresh = 10000000
+populations[populations < pop_thresh]
+```
+
+And if we were to use that `pop_thresh` multiple times in our code, and wanted to change it, we'd only have to change one location rather than many, thus reducing errors.
 
 ## A few final vector tricks
 
-Finally, there are a few other common retrieve or replace operations you may want to know about. First, you can check to see if any of the values of your vector are missing (i.e. are `NA`). The `is.NA()` function will return a logical vector, with TRUE for any `NA` value:
+There are a few other common retrieve or replace operations you may want to know about. First, you can check to see if any of the values of your vector are missing (i.e. are `NA`). The `is.na()` function will return a logical vector, with TRUE for any `NA` value:
 
 ```{r, purl = FALSE}
 # current value of 'countries':
