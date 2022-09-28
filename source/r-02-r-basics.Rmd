@@ -331,7 +331,7 @@ countries <- countries[-6]
 countries
 ```
 
-We can also explicitly rename or add a value to our index using double bracket notation:
+We can also explicitly rename or add a value to our index using bracket notation:
 
 ```{r, purl = FALSE}
 countries[7]<- "Estonia"
