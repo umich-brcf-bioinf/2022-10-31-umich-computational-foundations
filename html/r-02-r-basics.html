@@ -38,6 +38,7 @@ Favicon from
 https://twemoji.twitter.com/
 https://favicon.io/emoji-favicons/computer/
 -->
+<meta name="google-site-verification" content="t-Wgs-RXt8xi94RSoFamxoD2P2h-Hh7M_t_iOuxFZUo" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -363,6 +364,7 @@ Subsetting</a></li>
 <li><a href="#a-few-final-vector-tricks"
 id="toc-a-few-final-vector-tricks">A few final vector tricks</a></li>
 </ul></li>
+<li><a href="#data-reset" id="toc-data-reset">Data reset</a></li>
 <li><a href="#bonus-material-matrices-and-lists"
 id="toc-bonus-material-matrices-and-lists">Bonus material: Matrices and
 Lists</a>
@@ -814,7 +816,7 @@ expression:</p>
 countries</code></pre>
 <pre><code>[1] &quot;Thailand&quot; &quot;Lesotho&quot;  &quot;Suriname&quot; &quot;Canada&quot;   &quot;Bolivia&quot; </code></pre>
 <p>We can also explicitly rename or add a value to our index using
-double bracket notation:</p>
+bracket notation:</p>
 <pre class="r"><code>countries[7]&lt;- &quot;Estonia&quot;
 countries</code></pre>
 <pre><code>[1] &quot;Thailand&quot; &quot;Lesotho&quot;  &quot;Suriname&quot; &quot;Canada&quot;   &quot;Bolivia&quot;  NA         &quot;Estonia&quot; </code></pre>
@@ -847,19 +849,20 @@ Solution
 </div>
 <div id="logical-subsetting" class="section level2">
 <h2>Logical Subsetting</h2>
-<p>We saw above that we could use a logical vector in the bracket
-notation to extract the <code>TRUE</code> indices of a vector. In the
-case above we had a literal logical vector
-(i.e. <code>c(TRUE, FALSE, FALSE, FALSE)</code>). But we can also use a
-logical expression. Let’s say we wanted get all of the countries in our
-vector of country populations that were less than 10,000,000. We could
-index using the ‘&lt;’ (less than) logical operator:</p>
+<p>We saw with <code>countries[on_asia]</code> that we could use a
+literal logical vector in the bracket notation to extract the
+<code>TRUE</code> indices of a vector. But we can also use a logical
+expression. Let’s say we wanted get all of the countries in our vector
+of country populations that were less than 10,000,000. We could index
+using the ‘&lt;’ (less than) logical operator:</p>
 <pre class="r"><code># Subset populations to those less than 10 million
 populations[populations &lt; 10000000]</code></pre>
 <pre><code>[1] 2108328  575990</code></pre>
-<p>In the square brackets you place the name of the vector followed by
-the comparison operator and (in this case) a numeric value.</p>
-<p>Some of the most common logical operators you will use in R are:</p>
+<p>In the square brackets we essentially write an expression for a
+logical test of the vector. In this case
+<code>populations &lt; 10000000</code>, which R will then evaluate into
+a logical vector. Some of the most common logical operators you will use
+in R are:</p>
 <table>
 <thead>
 <tr class="header">
@@ -906,52 +909,31 @@ the comparison operator and (in this case) a numeric value.</p>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<h2 id="the-power-of-programming">The power of programming</h2>
-<p>The reason why the expression
-<code>populations[populations &lt; 10000000]</code> works can be better
-understood if you examine what the expression
-<code>populations &lt; 10000000</code> evaluates to:</p>
-<pre class="r"><code>populations &lt; 10000000</code></pre>
-<pre><code>[1] FALSE  TRUE  TRUE FALSE</code></pre>
-<p>The output above is a logical vector, the 2nd and 3rd elements of
-which are TRUE. When you pass a logical vector as an index, R will
-return the TRUE values:</p>
-<pre class="r"><code>populations[c(FALSE, TRUE, TRUE, FALSE)]</code></pre>
-<pre><code>[1] 2108328  575990</code></pre>
-<p>If you have never coded before, this type of situation starts to
-expose the power of programming. We mentioned before that in the bracket
-notation you take your named vector followed by brackets which contain
-an index: <strong>vector[index]</strong>. The index needs to
-<em>evaluate to</em> a number. So, even if it does not appear to be an
-integer (e.g. 1, 2, 3), as long as R can evaluate it, we will get a
-result. That our expression <code>populations &lt; 10000000</code>
-evaluates to a number can be seen in the following situation. If you
-wanted to know which <strong>indices</strong> (1, 2, 3, or 4) in our
-vector of country populations was less than 10,000,000, you could use
-the <code>which()</code> function.</p>
-<p>The <code>which()</code> function to returns the indices of any item
-that evaluates as TRUE in our comparison:</p>
+<p>There is a related way of doing this which returns the indices which
+are <code>TRUE</code>, using the <code>which()</code> function.</p>
 <pre class="r"><code>which(populations &lt; 10000000)</code></pre>
 <pre><code>[1] 2 3</code></pre>
-<p><strong>Why this is important</strong></p>
-<p>Often in programming we will not know what inputs and values will be
-used when our code is executed. Rather than put in a pre-determined
-value (e.g 10000000) we can use an object that can take on whatever
-value we need. So for example:</p>
-<pre class="r"><code>population_cutoff &lt;- 10000000
-populations[populations &lt; population_cutoff]</code></pre>
+<p>And then subsetting populations with the above expression in the
+square brackets gives the same result:</p>
+<pre class="r"><code># Subset populations to those less than 10 million
+populations[which(populations &lt; 10000000)]</code></pre>
 <pre><code>[1] 2108328  575990</code></pre>
-<p>Ultimately, it’s putting together flexible, reusable code like this
-that gets at the power of programming.</p>
-</blockquote>
+<p>Finally, a useful idea is to replace the hard-coded 10,000,000 with a
+variable. Often we won’t know what inputs and values will be used when
+our code is executed, so we could also do something like:</p>
+<pre class="r"><code>pop_thresh = 10000000
+populations[populations &lt; pop_thresh]</code></pre>
+<pre><code>[1] 2108328  575990</code></pre>
+<p>And if we were to use that <code>pop_thresh</code> multiple times in
+our code, and wanted to change it, we’d only have to change one location
+rather than many, thus reducing errors.</p>
 </div>
 <div id="a-few-final-vector-tricks" class="section level2">
 <h2>A few final vector tricks</h2>
-<p>Finally, there are a few other common retrieve or replace operations
-you may want to know about. First, you can check to see if any of the
-values of your vector are missing (i.e. are <code>NA</code>). The
-<code>is.NA()</code> function will return a logical vector, with TRUE
+<p>There are a few other common retrieve or replace operations you may
+want to know about. First, you can check to see if any of the values of
+your vector are missing (i.e. are <code>NA</code>). The
+<code>is.na()</code> function will return a logical vector, with TRUE
 for any <code>NA</code> value:</p>
 <pre class="r"><code># current value of &#39;countries&#39;:
 # chr [1:7] &quot;Thailand&quot; &quot;Lesotho&quot; &quot;Suriname&quot; &quot;Canada&quot; &quot;Bolivia&quot; NA &quot;Estonia&quot;
@@ -983,7 +965,8 @@ Solution
 </summary>
 <pre class="r"><code>continents &lt;- c(continents, &quot;South America&quot;) # did you use quotes?
 continents</code></pre>
-<pre><code>[1] &quot;Asia&quot;          &quot;Africa&quot;        &quot;South America&quot; &quot;North America&quot; &quot;South America&quot;</code></pre>
+<pre><code>[1] &quot;Asia&quot;          &quot;Africa&quot;        &quot;South America&quot; &quot;North America&quot;
+[5] &quot;South America&quot;</code></pre>
 <pre class="r"><code>populations &lt;- c(populations, 11428245)
 populations</code></pre>
 <pre><code>[1] 69950850  2108328   575990 38436447 11428245</code></pre>
@@ -1022,10 +1005,9 @@ Solution
 <p><br></p>
 </div>
 </div>
-<div id="bonus-material-matrices-and-lists" class="section level1">
-<h1>Bonus material: Matrices and Lists</h1>
-<p>Before we briefly introduce matrices and lists, let’s reset some
-vectors:</p>
+<div id="data-reset" class="section level1">
+<h1>Data reset</h1>
+<p>Before we continue, let’s reset some vectors:</p>
 <pre class="r"><code># Create a vector of country names
 countries &lt;- c(&quot;Thailand&quot;, &quot;Lesotho&quot;, &quot;Suriname&quot;, &quot;Canada&quot;)
 
@@ -1037,6 +1019,9 @@ populations &lt;- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
 
 # Logical vector of Asian countries
 on_asia &lt;- c(TRUE, FALSE, FALSE, FALSE)</code></pre>
+</div>
+<div id="bonus-material-matrices-and-lists" class="section level1">
+<h1>Bonus material: Matrices and Lists</h1>
 <div id="matrices" class="section level2">
 <h2>Matrices</h2>
 <p>A matrix stores values in a two-dimensional array, as in a matrix
