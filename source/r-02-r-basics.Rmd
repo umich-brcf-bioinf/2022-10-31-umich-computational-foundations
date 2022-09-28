@@ -478,9 +478,9 @@ typeof(combined)
 <br>
 
 
-# Bonus material: Matrices and Lists
+# Data reset
 
-Before we briefly introduce matrices and lists, let's reset some vectors:
+Before we continue, let's reset some vectors:
 
 ```{r, purl = FALSE}
 # Create a vector of country names
@@ -495,6 +495,9 @@ populations <- c(69950850, 2108328, 575990, 38436447) # Source: Wikipedia
 # Logical vector of Asian countries
 on_asia <- c(TRUE, FALSE, FALSE, FALSE)
 ```
+
+
+# Bonus material: Matrices and Lists
 
 ## Matrices
 
