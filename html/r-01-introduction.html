@@ -38,6 +38,7 @@ Favicon from
 https://twemoji.twitter.com/
 https://favicon.io/emoji-favicons/computer/
 -->
+<meta name="google-site-verification" content="t-Wgs-RXt8xi94RSoFamxoD2P2h-Hh7M_t_iOuxFZUo" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -334,8 +335,6 @@ $(document).ready(function () {
 <ul>
 <li><a href="#overview" id="toc-overview">Overview</a>
 <ul>
-<li><a href="#a-brief-history-of-r" id="toc-a-brief-history-of-r">A
-Brief History of R</a></li>
 <li><a href="#advantages-of-using-r"
 id="toc-advantages-of-using-r">Advantages of using R</a></li>
 <li><a href="#introducing-rstudio-server"
@@ -395,17 +394,6 @@ happy to offer guidance on setting up R and RStudio on your own
 computers after the workshop.</p>
 <p>In this lesson we will introduce how to run commands, save code, and
 find help.</p>
-<div id="a-brief-history-of-r" class="section level2">
-<h2>A Brief History of R</h2>
-<p><a
-href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a> has
-been around since 1995, and was created by Ross Ihaka and Robert
-Gentleman at the University of Auckland, New Zealand. R is based on the
-S programming language developed at Bell Labs and was developed to teach
-intro statistics. See this <a
-href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Massey.pdf">slide
-deck</a> by Ross Ihaka for more info on the subject.</p>
-</div>
 <div id="advantages-of-using-r" class="section level2">
 <h2>Advantages of using R</h2>
 <p>At more than 20 years old, R is fairly mature and has a thriving
@@ -712,15 +700,10 @@ round(3.14)</code></pre>
 help to find out how. To see the help (In R sometimes also called a
 “vignette”) enter a <code>?</code> in front of the function name:</p>
 <pre class="r"><code>?round</code></pre>
-<p>The “Help” tab will show you information (often, too much
-information). You will slowly learn how to read and make sense of help
-files. Checking the “Usage” or “Examples” headings is often a good place
-to look first. If you look under “Arguments,” we also see what arguments
-we can pass to this function to modify its behavior. You can also see a
-function’s argument using the <code>args()</code> function:</p>
-<pre class="r"><code>args(round)</code></pre>
-<pre><code>function (x, digits = 0) 
-NULL</code></pre>
+<p>You will slowly learn how to read and make sense of help files.
+Checking the “Usage” or “Examples” headings is often a good place to
+look first. If you look under “Arguments,” we also see what arguments we
+can pass to this function to modify its behavior.</p>
 <p><code>round()</code> takes two arguments, <code>x</code>, which is
 the number to be rounded, and a <code>digits</code> argument. The
 <code>=</code> sign indicates that a default is already set (in this
