@@ -61,7 +61,7 @@ continents_factor
 as.integer(continents_factor)
 ```
 
-Notice that the integer representation of the vector changed order, because the levels changed order. This will be useful later in the RNA-seq Demystified lessons when we discuss testing for differential expression.
+Notice that the integer representation of the vector changed order, because the levels changed order. This will be useful later in the RNA-seq Demystified lessons when we discuss testing for differential expression and the assumptions DESeq2 makes about what factor level is the "reference".
 
 # Data Frames
 
@@ -73,7 +73,7 @@ country_df
 dim(country_df)
 ```
 
-As we saw with matrices, since data frames are two-dimensional, we have to specify both the row and column to extract specific entries, as in:
+Since data frames are two-dimensional, we have to specify both the row and column to extract specific entries, as in:
 
 ```{r}
 # Return the element in the second row, third column
@@ -123,7 +123,7 @@ The simplest principle of **Tidy data** is that we have one row in our spreadshe
 
 **3. Trust but verify**
 
-Finally, while you don't need to be paranoid about data, you should have a plan for how you will prepare it for analysis. **This a focus of this lesson.** You probably already have a lot of intuition, expectations, assumptions about your data - the range of values you expect, how many values should have been recorded, etc. Of course, as the data get larger our human ability to keep track will start to fail (and yes, it can fail for small data sets too). R will help you to examine your data so that you can have greater confidence in your analysis, and its reproducibility.
+Finally, while you don't need to be paranoid about data, you should have a plan for how you will prepare it for analysis. You probably already have a lot of intuition, expectations, assumptions about your data - the range of values you expect, how many values should have been recorded, etc. Of course, as the data get larger our human ability to keep track will start to fail (and yes, it can fail for small data sets too). R will help you to examine your data so that you can have greater confidence in your analysis, and its reproducibility.
 
 > ## Tip: Changes in R don't overwrite the original file
 >
@@ -157,7 +157,7 @@ Hopefully, this exercise gets you thinking about using the provided help documen
 </details>
 <br>
 
-Now, let's read in the file `data/gapminder_data.csv` which is located in `/home/workshop/user/CF_R/data/gapminder_data.csv`. Call this data `gapminder`. The first argument to pass to our `read.csv()` function is the file path for our data. The file path must be in quotes and now is a good time to remember to use tab autocompletion. **If you use tab autocompletion you avoid typos and errors in file paths.** Use it!
+Now, let's read in the file `data/gapminder_data.csv` and call this data `gapminder`. The first argument to pass to our `read.csv()` function is the file path for our data. The file path must be in quotes and now is a good time to remember to use tab autocompletion. **If you use tab autocompletion you avoid typos and errors in file paths.** Use it!
 
 ```{r display_read, eval = FALSE, purl = FALSE}
 ## read in a CSV file and save it as 'gapminder'
@@ -235,43 +235,6 @@ Notice that we got some additionally useful information from `summary()` from th
 > ## Note: StringsAsFactors
 >
 > There are explicit forms of coercion, as in our factor example above. But there are also implicit coercions. The most famous example of this in R is the `stringsAsFactors` parameter of `read.table()`. Prior to R 4.0, when importing a data frame the `stringsAsFactors` argument was `TRUE` by default, which caused all character columns to be factors by **default**. This wasn't a good default behavior, and the default is now `FALSE`.
-
-## Plotting and ordering factors
-
-One of the most common uses for factors will be when you plot categorical values. For example, suppose we want to know how many of our gapminder had each possible SNP we could generate a plot:
-
-```{r, purl = FALSE}
-plot(gapminder$continent)
-```
-
-This isn't a particularly spectacular example of a plot but it works, and it recapitulates the table from `summary()`. We'll be learning much more about creating nice, publication-quality graphics later in the workshop.
-
-If you recall, factors are ordered alphabetically by default. That might make sense in some cases, but some categories (e.g., "red", "blue", "green") often do not have an intrinsic order. What if we wanted to order our plot according to the numerical value (i.e., in ascending order of continent frequency)? We can enforce an order on our factors:
-
-```{r, purl = FALSE}
-# First let's look at the table of the continent column
-table(gapminder$continent)
-
-# Next, let's sort that table
-sort(table(gapminder$continent))
-
-# Noticing that the result is named, we can extract the names
-names(sort(table(gapminder$continent)))
-
-# And those can be used as the level order
-reordered_continents <- factor(gapminder$continent, levels = names(sort(table(gapminder$continent))))
-
-# And let's quickly look at the result using the head() function
-head(reordered_continents, 20)
-```
-
-Now we see our plot has be reordered:
-
-```{r, purl = FALSE}
-plot(reordered_continents)
-```
-
-Factors come in handy in many places when using R. For example, in ggplot2 factors can help us reorder plots, and in statistical testing factors help us define the reference level.
 
 ## Saving your data frame to a file
 
