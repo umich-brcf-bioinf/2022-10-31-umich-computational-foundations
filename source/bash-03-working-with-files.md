@@ -69,7 +69,7 @@ $ ls *.fastq
 ~~~
 
 ~~~
-SRR097977.fastq  SRR098026.fastq
+sample_01.fastq  sample_02.fastq
 ~~~
 
 The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character. Thus, `*.fastq` matches every file that ends with `.fastq`.
@@ -77,14 +77,14 @@ The `*` character is a special type of character called a wildcard, which can be
 This command:
 
 ~~~
-$ ls *977.fastq
+$ ls *01.fastq
 ~~~
 
 ~~~
-SRR097977.fastq
+sample_01.fastq
 ~~~
 
-lists only the file that ends with `977.fastq`.
+lists only the file that ends with `01.fastq`.
 
 This command:
 
@@ -137,7 +137,7 @@ $ echo *.fastq
 ~~~
 
 ~~~
-SRR097977.fastq SRR098026.fastq
+sample_01.fastq sample_02.fastq
 ~~~
 
 The `*` is expanded to include any file that ends with `.fastq`. We can see that the output of `echo *.fastq` is the same as that of `ls *.fastq`.
@@ -223,17 +223,17 @@ One way to examine a file is to print out all of the contents using the program 
 Enter the following command from within the `untrimmed_fastq` directory:
 
 ~~~
-$ cat SRR098026.fastq
+$ cat sample_02.fastq
 ~~~
 
-This will print out all of the contents of the `SRR098026.fastq` to the screen.
+This will print out all of the contents of the `sample_02.fastq` to the screen.
 
 <br>
 <br>
 
 ## Challenge - Viewing file contents
 
-1. Print out the contents of the `~/CF_Shell/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file?
+1. Print out the contents of the `~/CF_Shell/untrimmed_fastq/sample_01.fastq` file. What is the last line of the file?
 2.  From your home directory, and without changing directories, use one short command to print the contents of all of the files in the `~/CF_Shell/untrimmed_fastq` directory.
 
 <details>
@@ -252,7 +252,7 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
 Enter the following command:
 
 ~~~
-$ less SRR097977.fastq
+$ less sample_01.fastq
 ~~~
 
 Some navigation commands in `less`:
@@ -306,7 +306,7 @@ There's another way that we can look at files, and in this case, just look at pa
 The commands are `head` and `tail` and they let you look at the beginning and end of a file, respectively.
 
 ~~~
-$ head SRR098026.fastq
+$ head sample_02.fastq
 ~~~
 
 ~~~
@@ -323,7 +323,7 @@ NNNNNNNNNNNNNNNNANNNNNNNNNNNNNNNNNN
 ~~~
 
 ~~~
-$ tail SRR098026.fastq
+$ tail sample_02.fastq
 ~~~
 
 ~~~
@@ -342,7 +342,7 @@ A!@B!BBB@ABAB#########!!!!!!!######
 The `-n` option to either of these commands can be used to print the first or last `n` lines of a file.
 
 ~~~
-$ head -n 1 SRR098026.fastq
+$ head -n 1 sample_02.fastq
 ~~~
 
 ~~~
@@ -350,7 +350,7 @@ $ head -n 1 SRR098026.fastq
 ~~~
 
 ~~~
-$ tail -n 1 SRR098026.fastq
+$ tail -n 1 sample_02.fastq
 ~~~
 
 ~~~
@@ -365,7 +365,7 @@ A!@B!BBB@ABAB#########!!!!!!!######
 In a FASTQ file, each sequencing read is represented in a 4-line entry. This means we can view the first read in one of the files by using `head` to look at the first four lines.
 
 ~~~
-$ head -n 4 SRR098026.fastq
+$ head -n 4 sample_02.fastq
 ~~~
 
 ~~~
@@ -395,15 +395,15 @@ First, let's make a copy of one of our FASTQ files using the `cp` command.
 Navigate to the `CF_Shell/untrimmed_fastq` directory and enter:
 
 ~~~
-$ cp SRR098026.fastq SRR098026-copy.fastq
+$ cp sample_02.fastq sample_02-copy.fastq
 $ ls -F
 ~~~
 
 ~~~
-SRR097977.fastq  SRR098026-copy.fastq  SRR098026.fastq
+sample_01.fastq  sample_02-copy.fastq  sample_02.fastq
 ~~~
 
-We now have two copies of the `SRR098026.fastq` file, one of them named `SRR098026-copy.fastq`. We'll move this file to a new directory called `backup` where we'll store our backup data files.
+We now have two copies of the `sample_02.fastq` file, one of them named `sample_02-copy.fastq`. We'll move this file to a new directory called `backup` where we'll store our backup data files.
 
 <br>
 
@@ -422,24 +422,24 @@ $ mkdir backup
 We can now move our backup file to this directory. We can move files around using the command `mv`:
 
 ~~~
-$ mv SRR098026-copy.fastq backup
+$ mv sample_02-copy.fastq backup
 $ ls backup
 ~~~
 
 ~~~
-SRR098026-copy.fastq
+sample_02-copy.fastq
 ~~~
 
 The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:
 
 ~~~
 $ cd backup
-$ mv SRR098026-copy.fastq SRR098026-backup.fastq
+$ mv sample_02-copy.fastq sample_02-backup.fastq
 $ ls
 ~~~
 
 ~~~
-SRR098026-backup.fastq
+sample_02-backup.fastq
 ~~~
 
 <br>
@@ -455,7 +455,7 @@ $ ls -l
 ~~~
 
 ~~~
--rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 sample_02-backup.fastq
 ~~~
 
 The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the permissions list. The first character in this list is related to file type, not permissions, so we'll ignore it for now. The next three characters relate to the permissions that the file owner has, the next three relate to the permissions for group members, and the final three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions that deal with your permissions (as the file owner).
@@ -469,12 +469,12 @@ Here the three positions that relate to the file owner are `rw-`. The `r` means 
 Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
 
 ~~~
-$ chmod -w SRR098026-backup.fastq
+$ chmod -w sample_02-backup.fastq
 $ ls -l
 ~~~
 
 ~~~
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 sample_02-backup.fastq
 ~~~
 
 <br>
@@ -484,13 +484,13 @@ $ ls -l
 To prove to ourselves that you no longer have the ability to modify this file, try deleting it with the `rm` command:
 
 ~~~
-$ rm SRR098026-backup.fastq
+$ rm sample_02-backup.fastq
 ~~~
 
 You'll be asked if you want to override your file permissions:
 
 ~~~
-rm: remove write-protected regular file ‘SRR098026-backup.fastq’?
+rm: remove write-protected regular file ‘sample_02-backup.fastq’?
 ~~~
 
 You should enter `n` for no. If you enter `n` (for no), the file will not be deleted. If you enter `y`, you will delete the file. This gives us an extra measure of security, as there is one more step between us and deleting our data files.
@@ -527,15 +527,15 @@ Starting in the `CF_Shell/untrimmed_fastq/` directory, do the following:
 <summary>Solution - Working with files</summary>
 
 1. `rm -r backup`
-2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`
+2. `cp sample_02.fastq sample_02-backup.fastq` and `cp sample_01.fastq sample_01-backup.fastq`
 3. `mkdir backup` and `mv *-backup.fastq backup`
 4. `chmod -w backup/*-backup.fastq`
 
 It's always a good idea to check your work with `ls -l backup`. You should see something like:
 
 ~~~
--r--r--r-- 1 dcuser dcuser 47552 Nov 15 23:06 SRR097977-backup.fastq
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:06 SRR098026-backup.fastq
+-r--r--r-- 1 dcuser dcuser 47552 Nov 15 23:06 sample_01-backup.fastq
+-r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:06 sample_02-backup.fastq
 ~~~
 
 </details>

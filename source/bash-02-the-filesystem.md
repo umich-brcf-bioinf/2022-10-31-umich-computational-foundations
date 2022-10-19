@@ -218,7 +218,7 @@ $ ls CF_Shell/untrimmed_fastq/
 ~~~
 
 ~~~
-SRR097977.fastq  SRR098026.fastq
+sample_01.fastq  sample_02.fastq
 ~~~
 </details
 
