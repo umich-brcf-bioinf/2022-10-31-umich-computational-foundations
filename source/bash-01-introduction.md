@@ -287,7 +287,7 @@ $ ls -F
 ~~~
 
 ~~~
-SRR097977.fastq  SRR098026.fastq
+sample_01.fastq  sample_02.fastq
 ~~~
 
 This directory contains two files with `.fastq` extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.
@@ -322,20 +322,20 @@ $ cd untrimmed_fastq
 
 Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you've typed enough characters to provide a unique identifier for the file or directory you are trying to access.
 
-For example, if we now try to list the files which names start with `SR` by using tab complete:
+For example, if we now try to list the files which names start with `sa` by using tab complete:
 
 ~~~
-$ ls SR<tab>
+$ ls sa<tab>
 ~~~
 
-The shell auto-completes your command to `SRR09`, because all file names in the directory begin with this prefix. When you hit <kbd>Tab</kbd> again, the shell will list the possible choices.
+The shell auto-completes your command to `sample_`, because all file names in the directory begin with this prefix. When you hit <kbd>Tab</kbd> again, the shell will list the possible choices.
 
 ~~~
-$ ls SRR09<tab><tab>
+$ ls sample_<tab><tab>
 ~~~
 
 ~~~
-SRR097977.fastq  SRR098026.fastq
+sample_01.fastq  sample_02.fastq
 ~~~
 
 Tab completion can also fill in the names of programs, which can be useful if you remember the beginning of a program name.

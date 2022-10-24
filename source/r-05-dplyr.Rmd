@@ -144,7 +144,7 @@ select(gapminder, contains("e"), -lifeExp, country)
 
 ## Filter
 
-To choose rows, use `filter()`:
+To choose rows based on a logical condition, use `filter()`:
 
 ```{r, echo = TRUE, eval = TRUE, purl = FALSE}
 filter(gapminder, country == 'Nigeria')
@@ -160,15 +160,14 @@ filter(gapminder, country %in% c('Vietnam', 'Indonesia'))
 filter(gapminder, lifeExp >= 70)
 ```
 
-`filter()` allows you to combine multiple conditions. You can separate them using a `,` as arguments to the function, they will be combined using the `&` (AND) logical operator. If you need to use the `|` (OR) logical operator, you can specify it explicitly:
+`filter()` allows you to combine multiple conditions using the `&` (AND) logical operator and the `|` (OR) logical operator. Such conditions can be arbitrarily complex:
 
 ```{r}
-# this is equivalent to:
-#   filter(gapminder, country == "Germany" & year >= 1980)
-filter(gapminder, country == "Germany", year >= 1980)
+# Get only the data for Germany on or after 1980
+filter(gapminder, country == "Germany" & year >= 1980)
 
-# using `|` logical operator
-filter(gapminder, year >= 1990, (country == "Australia" | country == 'Mauritius'))
+# Get the data for Australia or Mauritius on or after 1990
+filter(gapminder, year >= 1990 & (country == "Australia" | country == 'Mauritius'))
 ```
 
 > ## Challenge
@@ -179,16 +178,17 @@ filter(gapminder, year >= 1990, (country == "Australia" | country == 'Mauritius'
 <summary>Solution</summary>
 
 ```{r}
-filter(gapminder, continent == 'Europe', (year >= 1990 & year <= 2000))
+filter(gapminder, continent == 'Europe' & (year >= 1990 & year <= 2000))
 ```
 </details>
 <br>
 
 ## Pipes
 
-But what if you wanted to select and filter? We can do this with pipes (which we saw in the `bash` lessons). Pipes, are a fairly recent addition to R. Pipes let you take the output of one function and send it directly to the next, which is useful when you need to many things to the same data set. Pipes in R look like `%>%` (recall they looked like `|` in `bash`) and are available via the `magrittr` package, which is installed as part of `dplyr`. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a PC, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a Mac.
+But what if you wanted to select and filter? We can do this with pipes (which we saw in the `bash` lessons). Pipes, are a fairly recent addition to R. Pipes let you take the output of one function and send it directly to the next, which is useful when you need to do many things to the same data set sequentially. Pipes in R look like `%>%` (recall they looked like `|` in `bash`) and are available via the `magrittr` package, which is installed as part of `dplyr`. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a PC, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a Mac.
 
 ```{r, echo = TRUE, eval = TRUE, purl = FALSE}
+# Filter for data from Spain and select year, pop, and lifeExp columns
 gapminder %>%
     filter(country == "Spain") %>%
     select(year, pop, lifeExp)
@@ -257,7 +257,7 @@ gapminder %>% mutate(total_gdp = gdpPercap * pop)
 <summary>Solution</summary>
 
 ```{r}
-gapminder %>%
+gapminder = gapminder %>%
     mutate(total_gdp = gdpPercap * pop) %>%
     filter(country == 'United States')
 ```
@@ -314,7 +314,7 @@ gapminder %>%
 
 ## The pivot functions
 
-It can sometimes be useful to transform the "long" tidy format, into the wide format. This transformation can be done with the `pivot_wider()` function provided by the `tidyr` package (also part of the `tidyverse`).
+It can be useful to transform the "long" tidy format, into the wide format. This transformation can be done with the `pivot_wider()` function provided by the `tidyr` package (also part of the `tidyverse`).
 
 `pivot_wider()` takes a data frame as the first argument, and two arguments: the column name that will become the columns and the column name that will become the cells in the wide data. Let's create a wide format table with rows for each country, columns for each year, and data values being the lifeExp.
 
@@ -332,6 +332,16 @@ The opposite operation of `pivot_wider()` is taken care by `pivot_longer()`. We 
 gapminder_wide %>%
     pivot_longer(-country, names_to = "year", values_to = "lifeExp")
 ```
+
+> ## Tip: Why pivot functions?
+>
+> Imagine that you want to put the gapminder data into a paper where the rows are countries, the columns are years, and the data values are life expectancy. In it's currrent form, that data is long, and is not a natural format for a paper. The `pivot_wider()` function will transform the data into a more compact form suitable for a paper.
+>
+> Now, imagine you want to download and use data from a table in a paper. Say the rows are countries, the columns are years, and the data values are life expectancy. But you want to add some additional data based on the country and year that you have collected. The wide format of the data doesn't easily let you do this, but the long format does. In which case, the `pivot_longer()` function will help you transform the data so you can amend it for your purposes.
+
+> ## Tip: Trial and error with pivot functions
+> The pivot functions will often require some trial and error to arrive at the desired output. 
+
 # Resources
 
 * [Handy dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
