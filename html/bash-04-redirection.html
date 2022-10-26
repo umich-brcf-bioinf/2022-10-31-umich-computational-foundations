@@ -464,12 +464,12 @@ sample_02.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG</code></pre></li>
 <p><br></p>
 <p>The prompt should sit there a little bit, and then it should look like nothing happened. But type <code>ls</code>. You should see a new file called <code>bad_reads.txt</code>.</p>
 <p>We can check the number of lines in our new file using a command called <code>wc</code>. <code>wc</code> stands for <strong>word count</strong>. This command counts the number of words, lines, and characters in a file. The FASTQ file may change over time, so given the potential for updates, make sure your file matches your instructor’s output.</p>
-<p>As of Sept. 2020, wc gives the following output:</p>
+<p>As of Oct. 2022, wc gives the following output:</p>
 <pre><code>$ wc bad_reads.txt</code></pre>
-<pre><code>  802    1338   24012 bad_reads.txt</code></pre>
+<pre><code>    537    1073   23217 bad_reads.txt</code></pre>
 <p>This will tell us the number of lines, words and characters in the file. If we want only the number of lines, we can use the <code>-l</code> flag for <code>lines</code>.</p>
 <pre><code>$ wc -l bad_reads.txt</code></pre>
-<pre><code>802 bad_reads.txt</code></pre>
+<pre><code>537 bad_reads.txt</code></pre>
 <p><br> <br></p>
 </div>
 <div id="challenge---using-wc" class="section level2">
@@ -500,7 +500,7 @@ $ wc -l bad_reads.txt</code></pre>
 <p>We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the <code>&gt;</code> command to redirect output to a file, the new output will replace the output that was already present in the file. This is called “overwriting” and, just like you don’t want to overwrite your video recording of your kid’s first birthday party, you also want to avoid overwriting your data files.</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_02.fastq &gt; bad_reads.txt
 $ wc -l bad_reads.txt</code></pre>
-<pre><code>802 bad_reads.txt</code></pre>
+<pre><code>537 bad_reads.txt</code></pre>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_01.fastq &gt; bad_reads.txt
 $ wc -l bad_reads.txt</code></pre>
 <pre><code>0 bad_reads.txt</code></pre>
@@ -508,15 +508,15 @@ $ wc -l bad_reads.txt</code></pre>
 <p>We can avoid overwriting our files by using the command <code>&gt;&gt;</code>. <code>&gt;&gt;</code> is known as the “append redirect” and will append new output to the end of a file, rather than overwriting it.</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_02.fastq &gt; bad_reads.txt
 $ wc -l bad_reads.txt</code></pre>
-<pre><code>802 bad_reads.txt</code></pre>
+<pre><code>537 bad_reads.txt</code></pre>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_01.fastq &gt;&gt; bad_reads.txt
 $ wc -l bad_reads.txt</code></pre>
-<pre><code>802 bad_reads.txt</code></pre>
+<pre><code>537 bad_reads.txt</code></pre>
 <p>The output of our second call to <code>wc</code> shows that we have not overwritten our original data.</p>
 <p>We can also do this with a single line of code by using a wildcard:</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN *.fastq &gt; bad_reads.txt
 $ wc -l bad_reads.txt</code></pre>
-<pre><code>802 bad_reads.txt</code></pre>
+<pre><code>537 bad_reads.txt</code></pre>
 <blockquote>
 <p>File extensions - part 2</p>
 <p>This is where we would have trouble if we were naming our output file with a <code>.fastq</code> extension. If we already had a file called <code>bad_reads.fastq</code> (from our previous <code>grep</code> practice) and then ran the command above using a <code>.fastq</code> extension instead of a <code>.txt</code> extension, <code>grep</code> would give us a warning.</p>
@@ -534,20 +534,20 @@ $ wc -l bad_reads.txt</code></pre>
 <p>We can now see the output from our <code>grep</code> call within the <code>less</code> interface. We can use the up and down arrows to scroll through the output and use <code>q</code> to exit <code>less</code>.</p>
 <p>If we don’t want to create a file before counting lines of output from our <code>grep</code> search, we could directly pipe the output of the grep search to the command <code>wc -l</code>. This can be helpful for investigating your output if you are not sure you would like to save it to a file.</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_02.fastq | wc -l</code></pre>
-<p>Because we asked <code>grep</code> for all four lines of each FASTQ record, we need to divide the output by four to get the number of sequences that match our search pattern. Since 802 / 4 = 200.5 and we are expecting an integer number of records, there is something added or missing in <code>bad_reads.txt</code>. If we explore <code>bad_reads.txt</code> using <code>less</code>, we might be able to notice what is causing the uneven number of lines. Luckily, this issue happens by the end of the file so we can also spot it with <code>tail</code>.</p>
+<p>Because we asked <code>grep</code> for all four lines of each FASTQ record, we need to divide the output by four to get the number of sequences that match our search pattern. Since 537 / 4 = 134.25 and we are expecting an integer number of records, there is something added or missing in <code>bad_reads.txt</code>. If we explore <code>bad_reads.txt</code> using <code>less</code>, we might be able to notice what is causing the uneven number of lines. Luckily, this issue happens by the end of the file so we can also spot it with <code>tail</code>.</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_02.fastq &gt; bad_reads.txt
 $ tail bad_reads.txt</code></pre>
-<pre><code>@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+<pre><code>#!!!!!!!!!##########!!!!!!!!!!##!#!
+@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
 ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
 +SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
 #!!!!!!!!!##########!!!!!!!!!!##!#!
---
 --
 @SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
 CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</code></pre>
-<p>The fifth and six lines in the output display <code>--</code> which is used by default for <code>grep</code> to separate groups of lines matching the pattern, and indicate groups of lines which did not match the pattern so are not displayed. To fix this issue, we can redirect the output of grep to a second instance of <code>grep</code> as follows.</p>
+<p>The sixth line in the output displays <code>--</code> which is used by default for <code>grep</code> to separate groups of lines matching the pattern. To fix this issue, we can redirect the output of grep to a second instance of <code>grep</code> as follows.</p>
 <pre><code>$ grep -B1 -A2 NNNNNNNNNN sample_02.fastq | grep -v &#39;^--&#39; &gt; bad_reads.fastq
 tail bad_reads.fastq</code></pre>
 <pre><code>+SRR098026.132 HWUSI-EAS1599_1:2:1:0:320 length=35
