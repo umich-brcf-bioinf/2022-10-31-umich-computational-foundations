@@ -122,9 +122,7 @@ Type `yes` and press enter, and then you will proceed logging in.
 
 <div id="div_win" style="display:block" markdown="1">
 
-On a Windows computer, you will use the windows [PowerShell](https://en.wikipedia.org/wiki/Windows_PowerShell).
-
-To do this, go to your start menu/search and enter the term **'cmd'**; Select the 'Command Prompt' application and it should start the shell. The shell should say something like `C:\Users\your-pc-username>`.
+On a Windows machine, go to your start menu/search and enter the term **'cmd'**; Select the 'Command Prompt' application and it should start the shell. The shell should say something like `C:\Users\your-pc-username>`.
 
 Then you can use the `ssh` command to connect to the AWS instance:
 
