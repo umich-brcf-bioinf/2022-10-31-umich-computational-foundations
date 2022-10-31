@@ -33,18 +33,27 @@ a[target="_blank"]::after {
 }
 </style>
 
-# Welcome
 
-## About the Bioinformatics Core
+# Workshop goals and topics
 
-- The University of Michigan Bioinformatics Core is a team of analysts that help
-  researchers **design, analyze, and interpret** high-throughput genomics experiments.
-- Last year we helped about 60 researchers design and execute about 100 projects
-  including gene expression, epigenetic, variant identification, functional
-  enrichment and many other kinds of analyses.
-- We provide letters of support for grant proposals.
-- We are creating a series of bioinformatics-focused workshops.
-- [UM BRCF Bioinformatics Core](https://brcf.medicine.umich.edu/bioinformatics){target="_blank"}
+ - We want to make the computers work harder so we can do more meaningful work. This workshop introduces foundational tools and techniques that make computational projects simpler, more powerful, and more reproducible.
+
+ - By the end of the workshop, attendees will be able to
+   - Understand how to use a range of basic Bash commands including techniques
+     to view and manipulate files from the command line.
+   - Combine Bash commands together to create custom scripts.
+   - Understand basics of importing data into R and ways to clean/manipulate data
+   - Visualize data as plots
+
+ - Our purpose is not to be exhaustive, there is a lot that we cannot cover in
+   the allotted time, and we don't expect anyone to be an expert at the end of
+   the workshop. 
+
+- We hope that this introduction helps you over the steepest parts of the learning curve and gives a sense of what’s possible so you can 
+recognize these techniques when you see them and, with some independent study, apply them in your own work.
+
+ - Please let us know if there is anything we can do to improve the workshop experience.
+
 
 ## About the workshop team
 | ![](images/Module00_headshots/headshot_cgates.jpg) | ![](images/Module00_headshots/headshot_mbradenb.jpg) | ![](images/Module00_headshots/headshot_rcavalca.jpg) | ![](images/Module00_headshots/headshot_trsaari.jpg) |
@@ -54,23 +63,6 @@ a[target="_blank"]::after {
 |  **Dana** | **Irene** | **Sarah**|
 <br/>
 
-## Workshop sponsors
-![Sponsors](images/Module00_sponsor_logos.png)
-
-- [University of Michigan Library](https://www.lib.umich.edu/){target="_blank"}
-
-  Our mission is to support, enhance, and collaborate in the instructional, research, and
-  service activities of faculty, students, and staff, and contribute to the common good by
-  collecting, organizing, preserving, communicating, sharing, and creating the record of human
-  knowledge.
-
-- [Biomedical Research Core Facilities](https://brcf.medicine.umich.edu/){target="_blank"}
-
-  Biomedical Research Core Facilities (BRCF) helps researchers economically take advantage of
-  the latest technology and collaborate with top experts in the field. Established in 1986, the
-  BRCF was formed to offer centralized access to research services and equipment.
-<br/>
-<br/>
 
 # Code of Conduct
 
@@ -154,7 +146,7 @@ breakout room.
 
 ![Posting messages to Slack](images/Module00_slack.png)
 
-  - Slack messages will be posted to the **2022-07-computational-foundations** channel.
+  - Slack messages will be posted to the **2022-10-computational-foundations** channel.
     Click on the channel in the left pane (1) to select this channel.
   - You can type in the **message field** (2); click **send** (3) to
     post your message to everyone.
@@ -199,25 +191,6 @@ It is important that you can see:
 <br/>
 
 
-# Workshop goals and topics
-
- - This workshop provides a foundation for researchers to make compute-intensive
-   research projects easier, simpler, and more reproducible.
-
- - By the end of the workshop, attendees will be able to
-   - Understand how to use a range of basic Bash commands including techniques
-     to view and manipulate files from the command line.
-   - Combine Bash commands together to create custom scripts.
-   - Understand basics of importing data into R and ways to clean/manipulate data
-   - Visualize data as plots
-
- - Please let us know if there is anything we can do to improve the workshop experience.
-
- - Our purpose is not to be exhaustive, there is a lot that we cannot cover in
-   the allotted time, and we don't expect anyone to be an expert at the end of
-   the workshop. But we hope you will have a familiarity with key concepts,
-   tools, and techniques.
-
 
 # Any questions?
  -
@@ -225,6 +198,37 @@ It is important that you can see:
 
 
 ---
+# Thank you to our sponsors/contributors
+
+![](images/Module00_sponsor_logos.png)
+
+## [UM BRCF Bioinformatics Core](https://brcf.medicine.umich.edu/bioinformatics){target="_blank"}
+
+- The University of Michigan BRCF Bioinformatics Core is a team of analysts that help
+  researchers **design, analyze, and interpret** high-throughput genomics experiments.
+- Last year we helped about 60 researchers design and execute about 100 projects
+  including gene expression, epigenetic, variant identification, functional
+  enrichment and many other kinds of analyses.
+- We provide letters of support for grant proposals.
+- We are creating a series of bioinformatics-focused workshops.
+
+## [University of Michigan Library](https://www.lib.umich.edu/){target="_blank"}
+
+  Our mission is to support, enhance, and collaborate in the instructional, research, and
+  service activities of faculty, students, and staff, and contribute to the common good by
+  collecting, organizing, preserving, communicating, sharing, and creating the record of human
+  knowledge.
+
+## [Biomedical Research Core Facilities](https://brcf.medicine.umich.edu/){target="_blank"}
+
+  Biomedical Research Core Facilities (BRCF) helps researchers economically take advantage of
+  the latest technology and collaborate with top experts in the field. Established in 1986, the
+  BRCF was formed to offer centralized access to research services and equipment.
+<br/>
+<br/>
+
+
+## Acknowledgements
 
 * This workshop content is licensed under a [Creative Commons Attribution 4 License](https://creativecommons.org/licenses/by/4.0/){target="_blank"}.
 
