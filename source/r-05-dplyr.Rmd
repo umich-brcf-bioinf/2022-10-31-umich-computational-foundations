@@ -257,7 +257,7 @@ gapminder %>% mutate(total_gdp = gdpPercap * pop)
 <summary>Solution</summary>
 
 ```{r}
-gapminder = gapminder %>%
+gapminder %>%
     mutate(total_gdp = gdpPercap * pop) %>%
     filter(country == 'United States')
 ```
@@ -340,7 +340,7 @@ gapminder_wide %>%
 > Now, imagine you want to download and use data from a table in a paper. Say the rows are countries, the columns are years, and the data values are life expectancy. But you want to add some additional data based on the country and year that you have collected. The wide format of the data doesn't easily let you do this, but the long format does. In which case, the `pivot_longer()` function will help you transform the data so you can amend it for your purposes.
 
 > ## Tip: Trial and error with pivot functions
-> The pivot functions will often require some trial and error to arrive at the desired output. 
+> The pivot functions will often require some trial and error to arrive at the desired output.
 
 # Resources
 
