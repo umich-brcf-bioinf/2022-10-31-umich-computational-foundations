@@ -39,7 +39,7 @@ that will enable more efficient, reproducible, and impactful computational resea
 
 ## Housekeeping
 
-- Please take our optional <a class="external" href="https://forms.gle/MicfgHWzBkZyNiy97" target="_blank">post-workshop survey</a> (5-10 minutes) <br />
+- Please take our optional <a class="external" href="https://forms.gle/4Z8HjJRw4PKQMEti7" target="_blank">post-workshop survey</a> (5-10 minutes) <br />
 
 - We will email you a link to the final session recordings by next week.
 
@@ -53,7 +53,7 @@ for 90 days.
 ## Looking ahead
 
 ### Workshop environment
-- BASH/RStudio workshop compute environment will be available until this coming Monday.
+- BASH Shell and RStudio workshop compute environment will be available for one week from today.
   - _Please save all your R scripts now_ so that we can "right-size" the compute environment immediately following today's workshop session.
 - You can download files from the workshop environment from your terminal/command line window as below.
   (You will need to substitute your actual workshop username and type workshop password when prompted.)
@@ -67,7 +67,7 @@ for 90 days.
 
 ## Continued training and support
 Learning computational techniques is more like a process than a task. Resources
-to consider:
+to consider as you continues your study:
 
 - Some handy Bash cheatsheets:
   - <a class="external" target="_blank" href="https://files.fosswire.com/2007/08/fwunixref.pdf">https://files.fosswire.com/2007/08/fwunixref.pdf</a>
@@ -81,12 +81,13 @@ to consider:
   - A bit like ExplainShell above, but for regex expressions:<br/>
   <a class="external" target="_blank" href="https://regexr.com/">https://regexr.com/</a>
 - Intro lessons and workshops in Bash / Git / R / Python : 
-  - <a class="external" href="https://software-carpentry.org/lessons/" target="_blank">Software Carpentry</a> 
-    and the <a class="external" href="https://umcarpentries.org/" target="_blank">UM Software Carpentry Group</a>.
+  - <a class="external" href="https://software-carpentry.org/lessons/" target="_blank">Software Carpentry</a>.
 
 
 ## University of Michigan Resources
 - <a class="external"  href="https://datascience.isr.umich.edu/events/coderspaces/" target="_blank">UM CoderSpaces "office hours"</a> and UM CoderSpaces Slack workspace. _(See "Useful Resources" section in above page for instructions on how to join and access the CoderSpaces Slack workspace.)_
+- <a class="external"  href="https://umcarpentries.org/" target="_blank">The Carpentries at the
+University of Michigan</a> host several introductory workshops each year following curricula that are developed collaboratively and using the latest research into best practices for teaching computer science content. All workshops are offered for free to learners. 
 - Upcoming <a class="external" href="https://arc.umich.edu/events/" target="_blank">UM Advanced Research Computing workshops</a>.
 - Advanced Research Computing (ARC) at University of Michigan hosts a
   high-performance computing (HPC) platform called _Great Lakes_ which combines
